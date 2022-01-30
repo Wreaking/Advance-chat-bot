@@ -41,12 +41,6 @@ client.on('message', async message =>{
   }
   })
 //--------------------------------------------------------SERVER CHAT BOT SECTION---------------------------------------------------------------------
-async function errorEmbed(text,message){//shows the error
-      const newembed = new Discord.MessageEmbed()
-      .setColor("RANDOM")
-      .setDescription(`**❌ | ${text} **`)
-       return message.lineReply(newembed);
-    }
 //=============================================
 const channel = ""//PLEASE PASTE CHANNEL ID IF YOU DON'T KNOW HOW TO GET CHANNEL ID ENABLE DEVELOPER MODE ON OR JOIN OUR SERVER
 //=============================================
@@ -59,7 +53,7 @@ if (message.content.includes(`@`)) {
 return message.lineReply(`**:x: Please dont mention anyone**`);//doesnt allow user to mention people
  }
    
-   try {
+   
   if (message.channel.id != channel) return//connects to your channel where the bot's chat
   let res = await axios.get(`http://api.brainshop.ai/get?bid=159454&key=RKi4jqvbEarRLLq2&uid=[uid]&msg=[msg]=${encodeURIComponent(message.content)}`);//Almighty API
   message.reply({//here's the response
@@ -69,8 +63,5 @@ return message.lineReply(`**:x: Please dont mention anyone**`);//doesnt allow us
       color: '#cc0000',
     }
     });
-  } catch {
-   errorEmbed(`Bot error, please try again!`,message)
-   }
 })
 client.login('PASTE YOUR TOKEN')

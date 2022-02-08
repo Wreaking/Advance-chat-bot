@@ -1,4 +1,5 @@
 const Discord = require('discord.js');//defining the package
+const axios = require ('axios')
 const client = new Client({
     disableEveryone: true
 })
